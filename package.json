@@ -29,10 +29,7 @@
   "homepage": "https://github.com/lumusitec/frontend-revision#readme",
   "devDependencies": {
     "css-loader": "^5.0.1",
-<<<<<<< HEAD
     "file-loader": "^6.2.0",
-=======
->>>>>>> 24352d1a980a352af14720756e4302a0e4496c6e
     "html-webpack-plugin": "^4.5.0",
     "node-sass": "^5.0.0",
     "sass-loader": "^10.1.0",
