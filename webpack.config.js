@@ -1,4 +1,6 @@
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 const path = require('path');
+
 const HtmlPlugin = require('html-webpack-plugin');
 const htmlplugin = new HtmlPlugin({
     template: './assets/index.template.html',
