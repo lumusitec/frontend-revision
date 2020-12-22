@@ -1,3 +1,36 @@
-body {
-    background-color: red;
+* {
+    box-sizing: border-box;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+}
+
+.main-text {
+    grid-column: 2 / 5;
+}
+
+.main-image {
+    grid-column-start: 5;
+    grid-column-end: 12;
+}
+
+// ó
+.grid-area {
+    display: grid;
+    grid-template-columns: repeat(9, 1fr);
+    grid-template-areas: ". title title img img img img img .";
+}
+
+.main-area-text {
+    grid-area: title;
+}
+
+.main-area-img {
+    grid-area: img;
+}
+
+.main-area-img img {
+    width: 100%;
 }
