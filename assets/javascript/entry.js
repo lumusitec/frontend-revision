@@ -3,3 +3,6 @@ import '../css/app.scss';
 import '../../public/images/1.jpg';
 import '../../public/images/2.jpg';
 import '../../public/images/3.jpg';
+import '../../public/images/4.jpg';
+
+import './slider/sliderDOM.js';

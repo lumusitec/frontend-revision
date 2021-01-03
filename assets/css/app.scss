@@ -42,11 +42,73 @@ figure {
     grid-column: span 12;
 }
 
+.grid-main-area {
+    margin-top: $big-margin-top;
+    margin-bottom: $big-margin-top;
+    display: grid;
+    grid-template-columns: repeat(9, 1fr);
+    grid-template-areas:
+        "title title title title title title title title title"
+        "img img img img img img img img img";
+
+    .text {
+        grid-area: title;
+        @include main-text;
+        margin-right: 0 !important;
+    }
+
+    .image {
+        grid-area: img;
+        margin-top: 5em;
+    }
+}
+
+.slider {
+    header {
+        background-color: $blue;
+        color: $white;
+        padding: $big-padding;
+        transform: translateY(40px);
+        width: 80%;
+        box-sizing: border-box;
+        margin: 0 auto;
+        z-index: 10;
+        position: relative;
+    }
+
+    .image {
+        margin-top: 0;
+        min-height: 100vh;
+        display: flex;
+        align-items: center;
+        position: relative;
+        z-index: -10;
+    }
+
+    h2 {
+        margin: 0;
+    }
+}
+
+#slider-text-content{
+    @include transition;
+    &.hide{
+        opacity: 0;
+        transform: translateX(100px);
+    }
+}
+
+#slider-image{
+    @include transition;
+    &.hide{
+        opacity: 0;
+    }
+}
+
 .cover {
     @include absolute-cover;
     background-color: $red;
     min-height: 500px;
-
 
     &.parallax {
         background: url('../../public/images/2.jpg') no-repeat;
@@ -73,35 +135,27 @@ figure {
     }
 }
 
-.grid-main-area {
-    margin-top: $big-margin-top;
-    margin-bottom: $big-margin-top;
-    display: grid;
-    grid-template-columns: repeat(9, 1fr);
-    grid-template-areas:
-        "title title title title title title title title title"
-        "img img img img img img img img img";
-
-    .text {
-        grid-area: title;
-        @include main-text;
-    }
-
-    .image {
-        grid-area: img;
-    }
-}
 
 .mission {
+    box-sizing: border-box;
     align-items: center;
+    width: 100%;
 
     .container {
         @include main-text;
         font-size: 1.1em;
+        width: 100%;
+        padding: 0;
+        text-align: center;
 
         figure {
             float: right;
-            margin-left: 20px;
+            width: 100%;
+
+            figcaption {
+                @include caption;
+                bottom: 10px;
+            }
         }
 
         p {
@@ -127,6 +181,24 @@ figure {
     }
 }
 
+.social {
+    margin-top: $big-margin-top;
+    margin-bottom: $big-margin-top;
+    text-align: center;
+
+    p.title {
+        font-weight: 200;
+        font-size: 2.1em;
+    }
+
+    a {
+        display: block;
+        @include text-center;
+        max-width: 150px;
+        margin: 1em auto;
+    }
+}
+
 @media (min-width: 960px) {
     .container {
         grid-column: 2 / 12;
@@ -134,7 +206,58 @@ figure {
 
     .grid-main-area {
         grid-template-areas: "title title title img img img img img img";
+
+        img {
+            margin-top: 0;
+            object-fit: contain;
+        }
+
+        .text {
+            margin-right: 2em;
+        }
     }
+
+    .slider {
+        align-items: center;
+
+        .text {
+            transform: translateX(100px);
+            width: 100%;
+            min-height: 350px;
+
+            .separator {
+                text-align: right;
+                padding-right: 150px;
+                position: relative;
+                color: $white;
+
+                &::after {
+                    content: "";
+                    position: absolute;
+                    top: .7em;
+                    right: 0;
+                    width: 140px;
+                    height: 3px;
+                    background-color: currentColor;
+                }
+            }
+
+        }
+    }
+
+    .social {
+        text-align: center;
+
+        justify-content: center;
+        align-content: space-around;
+
+        a {
+            display: inline-block;
+            margin-top: 0;
+            margin: 20px
+        }
+    }
+
 }
 
 .btn {
